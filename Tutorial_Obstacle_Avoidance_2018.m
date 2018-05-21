@@ -28,8 +28,9 @@ disp('''obs_modulation_ellipsoid.m'' in the ''lib_obstacle_avoidance'' folder,')
 disp('is the only file that is necessary to perform the obstacle avoidance.')
 disp('All other files are just needed for the illustrative purpose.')
 disp('press any key to continue ...')
-%% pause
-% first demo
+pause
+
+%% first demo
 disp(' ')
 disp(' ')
 disp('In the first demo, we consider a globally asymptotically stable DS,')
@@ -38,7 +39,7 @@ disp('  xd = -x ;')
 disp('This DS has a unique attractor at the origin.')
 disp('press any key to draw the streamlines of this DS ...')
 
-%% pause
+pause
 fn_handle = @(x) linearStableDS(x); %defining the function handle
 x0 = [-18*ones(1,15);linspace(-10,10,15)]; %set of initial points
 % A set of parameters that should be defined for the simulation
@@ -63,7 +64,7 @@ disp('obs{1}.sf = [1.2]')
 disp('obs{1}.th_r = 0')
 disp('press any key to draw the streamlines in the presence of a circular obstacle ...')
 
-%% pause
+pause
 clear obs;
 obs{1}.a = [3; 3];
 obs{1}.p = [1;1];
@@ -76,7 +77,7 @@ opt_sim.figure = fig(2);
 Simulation_comparison(x0,[],fn_handle,opt_sim);
 disp('press any key to continue ...')
 
-%% pause
+pause
 disp(' ')
 disp(' ')
 disp('Now, let us evaluate the system behavior in the presence of a non-circualr obstacle')
@@ -88,7 +89,7 @@ disp('obs{1}.sf = [1.2]')
 disp('obs{1}.th_r = 0')
 disp('press any key to draw the streamlines in the presence of the obstacle ...')
 
-%% pause
+pause
 
 clear obs;
 obs{1}.a = [1.2; 3];
@@ -102,9 +103,9 @@ opt_sim.figure = fig(2);
 Simulation_comparison(x0,[],fn_handle,opt_sim);
 disp('press any key to continue ...')
 
-%% pause
+pause
 
-%adding more obstacles
+% adding more obstacles
 disp(' ')
 disp(' ')
 disp('Now let us add two more obstacles to the previous example. We use the')
@@ -128,7 +129,7 @@ obs{3}.x0 = [-12;-3];
 obs{3}.th_r = -90*pi/180;
 disp('press any key to draw the streamlines in the presence of three obstacles ...')
 
-%% pause
+pause
 opt_sim.obstacle = obs;
 fig(3) = figure('name','1st demo: Multiple obstacle avoidance','position',[200 300 1100 500]);
 opt_sim.figure = fig(3); 
@@ -137,8 +138,10 @@ disp('press any key to continue ...')
 pause
 close all;
 
-%% pause
-% obstacles are intersecting
+pause
+
+
+%% Second demo -- obstacles are intersecting
 disp(' ')
 disp(' ')
 disp('In the second demo, intersecting obstacles are observed')
@@ -168,9 +171,8 @@ fig(3) = figure('name','1st demo: Concave regions (1)','position',[200 300 1100 
 opt_sim.figure = fig(3); 
 Simulation_comparison(x0,[],fn_handle,opt_sim);
 disp('press any key to continue ...')
+pause
 
-%% pause
-close all;
 
 disp(' ')
 disp(' ')
@@ -192,9 +194,11 @@ fig(1) = figure('name','2nd demo: Concave regions (2)','position',[200 300 1100 
 opt_sim.figure = fig(1); 
 Simulation_comparison(x0,[],fn_handle,opt_sim);
 disp('press any key to continue ...')
+pause
+close all;
 
-%% pause
-% obstacles are intersecting
+
+%% Moving obstacles
 disp(' ')
 disp(' ')
 disp('In the third demo, moving obstacles that drive the robot')
@@ -219,8 +223,7 @@ fig(2) = figure('name','3rd demo: Obstacle with linear velocity','position',[200
 opt_sim.figure = fig(2); 
 Simulation_comparison(x0,[],fn_handle,opt_sim);
 disp('press any key to continue ...')
-
-%% pause
+pause
 
 disp(' ')
 disp(' ')
@@ -233,15 +236,15 @@ obs{1}.perturbation.w = 4;
 obs{1}.perturbation.dx = [0;0];
 
 disp('press any key to draw the streamlines in the presence of three obstacles ...')
+pause
 
-% pause
 opt_sim.obstacle = obs;
 fig(3) = figure('name','3rd demo: Obstacle with angular velocity','position',[200 300 1100 500]);
 opt_sim.figure = fig(3); 
 Simulation_comparison(x0,[],fn_handle,opt_sim);
 disp('press any key to continue ...')
+pause
 
-%% pause
 
 disp(' ')
 disp(' ')
@@ -267,11 +270,10 @@ fig(3) = figure('name','3rd demo: Multiple, moving obstacles','position',[200 30
 opt_sim.figure = fig(3); 
 Simulation_comparison(x0,[],fn_handle,opt_sim);
 disp('press any key to continue ...')
-
-%% pause
-
+pause
 close all;
-% second demo
+
+%% Fourth demo - nonlinear vector field
 disp(' ')
 disp(' ')
 disp('In the fourth demo, we consider a nonlinear system with a stable limit cycle that drive the robot')
