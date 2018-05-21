@@ -19,6 +19,7 @@ if isempty(regexp(path,['lib_simulation_tools' pathsep], 'once'))
     addpath([pwd, '/lib_simulation_tools']);
 end
 
+
 %% initial comments
 clc
 disp('In this tutorial, we show examples of using the proposed obstacle')
@@ -38,8 +39,8 @@ disp('which is defined by:')
 disp('  xd = -x ;')
 disp('This DS has a unique attractor at the origin.')
 disp('press any key to draw the streamlines of this DS ...')
-
 pause
+
 fn_handle = @(x) linearStableDS(x); %defining the function handle
 x0 = [-18*ones(1,15);linspace(-10,10,15)]; %set of initial points
 % A set of parameters that should be defined for the simulation
@@ -63,8 +64,8 @@ disp('obs{1}.x0 = [-8;0]')
 disp('obs{1}.sf = [1.2]')
 disp('obs{1}.th_r = 0')
 disp('press any key to draw the streamlines in the presence of a circular obstacle ...')
-
 pause
+
 clear obs;
 obs{1}.a = [3; 3];
 obs{1}.p = [1;1];
@@ -76,8 +77,8 @@ fig(2) = figure('name','First demo: Streamlines of the modulated DS (circular)',
 opt_sim.figure = fig(2);
 Simulation_comparison(x0,[],fn_handle,opt_sim);
 disp('press any key to continue ...')
-
 pause
+
 disp(' ')
 disp(' ')
 disp('Now, let us evaluate the system behavior in the presence of a non-circualr obstacle')
@@ -88,7 +89,6 @@ disp('obs{1}.x0 = [-8;0]')
 disp('obs{1}.sf = [1.2]')
 disp('obs{1}.th_r = 0')
 disp('press any key to draw the streamlines in the presence of the obstacle ...')
-
 pause
 
 clear obs;
@@ -102,7 +102,6 @@ fig(2) = figure('name','First demo: Streamlines of the modulated DS','position',
 opt_sim.figure = fig(2);
 Simulation_comparison(x0,[],fn_handle,opt_sim);
 disp('press any key to continue ...')
-
 pause
 
 % adding more obstacles
@@ -128,8 +127,8 @@ obs{3} = obs{1};
 obs{3}.x0 = [-12;-3];
 obs{3}.th_r = -90*pi/180;
 disp('press any key to draw the streamlines in the presence of three obstacles ...')
-
 pause
+
 opt_sim.obstacle = obs;
 fig(3) = figure('name','1st demo: Multiple obstacle avoidance','position',[200 300 1100 500]);
 opt_sim.figure = fig(3); 
@@ -137,8 +136,6 @@ Simulation_comparison(x0,[],fn_handle,opt_sim);
 disp('press any key to continue ...')
 pause
 close all;
-
-pause
 
 
 %% Second demo -- obstacles are intersecting
