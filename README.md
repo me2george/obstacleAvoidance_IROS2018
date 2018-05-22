@@ -1,1 +1,1 @@
-# ObstacleAvoidance at IROS2018
+# ObstacleAvoidance at RSS2018
